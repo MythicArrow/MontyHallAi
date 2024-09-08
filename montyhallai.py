@@ -51,12 +51,13 @@ def create_model():
     return model
 
 # Parameters
-num_episodes = 10000
-gamma = 0.95  # discount factor
-epsilon = 1.0  # exploration rate
+num_episodes = int(input("Write the episode number "))
+gamma = int(input("Write the gamma(discount factor)"))  # discount factor
+epsilon = int(input("Write the epsilon(exploration rate)"))  # exploration rate
 epsilon_min = 0.01
 epsilon_decay = 0.995
-batch_size = 32
+batch_size = int(input("Write the batch size"))
+
 memory = deque(maxlen=2000)
 
 # Initialize the environment and model
