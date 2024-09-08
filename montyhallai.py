@@ -51,12 +51,32 @@ def create_model():
     return model
 
 # Parameters
-num_episodes = int(input("Write the episode number "))
-gamma = int(input("Write the gamma(discount factor)"))  # discount factor
-epsilon = int(input("Write the epsilon(exploration rate)"))  # exploration rate
+num_episodes_input = input("Set episode number? (y/n): ")
+if num_episodes_input == 'n':
+    num_episodes = 1000
+elif num_episodes_input == 'y':
+    num_episodes = int(input("Enter the episode number: "))
+
+gamma_input = input("Set gamma (discount factor)? (y/n): ")
+if gamma_input == 'n':
+    gamma = 0.95
+elif gamma_input == 'y':
+    gamma = float(input("Enter the gamma rate: "))
+
+epsilon_input = input("Set epsilon (exploration rate)? (y/n): ")
+if epsilon_input == 'n':
+    epsilon = 1.0
+elif epsilon_input == 'y':
+    epsilon = float(input("Enter the epsilon rate: "))
+
 epsilon_min = 0.01
 epsilon_decay = 0.995
-batch_size = int(input("Write the batch size"))
+
+batch_size_input = input("Set batch size? (y/n): ")
+if batch_size_input == 'n':
+    batch_size = 32  # Default value for batch size if 'n'
+elif batch_size_input == 'y':
+    batch_size = int(input("Enter the batch size: "))
 
 memory = deque(maxlen=2000)
 
